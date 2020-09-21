@@ -1,36 +1,38 @@
 "use strict";
 
-var usuarios = [{
-  nome: 'Diego',
-  idade: 23,
-  empresa: 'Rocketseat'
-}, {
-  nome: 'Gabriel',
-  idade: 15,
-  empresa: 'Rocketseat'
-}, {
-  nome: 'Lucas',
-  idade: 30,
-  empresa: 'Facebook'
-}];
-var idades = []; // const trabalham = [];
+// 3.1
+var arr = [1, 2, 3, 4, 5];
+var newArr = arr.map(function (item) {
+  return item + 10;
+});
+console.log(newArr); // 3.2
 
-usuarios.map(function (item) {
-  idades.push(item.idade);
-});
-var trabalham = usuarios.filter(function (item) {
-  return item.empresa === 'Rocketseat' && item.idade > 18;
-});
-var trabalham_google = usuarios.find(function (item) {
-  return item.empresa === 'Google';
-});
-console.log(idades);
-console.log(trabalham);
-console.log(trabalham_google);
-usuarios.map(function (item) {
-  item.idade *= 2;
-});
-var filtro = usuarios.filter(function (item) {
-  return item.idade <= 50;
-});
-console.log(filtro);
+var usuario = {
+  nome: 'Diego',
+  idade: 23
+};
+
+var mostraIdade = function mostraIdade(usuario) {
+  return usuario.idade;
+};
+
+console.log(mostraIdade(usuario)); // 3.3
+
+var nome = 'Diego';
+var idade = 23;
+
+var mostraUsuario = function mostraUsuario(nome, idade) {
+  return {
+    nome: nome,
+    idade: idade
+  };
+};
+
+console.log(mostraUsuario(nome, idade));
+console.log(mostraUsuario(nome)); // 3.4
+
+var promise = function promise() {
+  return new Promise(function (resolve, reject) {
+    return resolve();
+  });
+};
