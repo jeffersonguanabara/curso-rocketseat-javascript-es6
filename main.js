@@ -1,29 +1,24 @@
-// Exercídios: módulo 01
+const usuarios = [
+    { nome : 'Diego', idade: 23, empresa: 'Rocketseat' },
+    { nome : 'Gabriel', idade: 15, empresa: 'Rocketseat' },
+    { nome : 'Lucas', idade: 30, empresa: 'Facebook' }
+]
 
-class Usuario {
+const idades = []; 
+// const trabalham = [];
 
-    constructor(email, senha) {
-        this.email = email;
-        this.senha = senha;
-        this.admin = false;
-    }
+usuarios.map(item => { idades.push(item.idade) });
 
-    isAdmin() {
-        return this.admin;
-    }
-}
+const trabalham = usuarios.filter(item => item.empresa === 'Rocketseat' && item.idade > 18);
 
-class Admin extends Usuario {
+const trabalham_google = usuarios.find(item => item.empresa === 'Google');
 
-    constructor() {
-        super();
-        this.admin = true;
-    }
+console.log(idades);
+console.log(trabalham);
+console.log(trabalham_google);
 
-}
+usuarios.map(item => { item.idade *= 2 });
 
-const User1 = new Usuario('email@teste.com', 'senha123');
-const Adm1 = new Admin('email@teste.com', 'senha123');
+const filtro = usuarios.filter(item => item.idade <= 50 );
 
-console.log(User1.isAdmin());
-console.log(Adm1.isAdmin());
+console.log(filtro);
