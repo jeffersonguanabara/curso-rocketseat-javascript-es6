@@ -1,31 +1,24 @@
-// 3.1
+// 4.1 Desestruturação simples
 
-const arr = [1, 2, 3, 4, 5];
-
-const newArr = arr.map(item => item + 10 );
-
-console.log(newArr);
-
-// 3.2
-
-const usuario = { nome: 'Diego', idade: 23 };
-
-const mostraIdade = (usuario) => usuario.idade;
-
-console.log(mostraIdade(usuario));
-
-// 3.3
-
-const nome = 'Diego';
-const idade = 23;
-
-const mostraUsuario = (nome, idade) => ({ nome, idade });
-
-console.log(mostraUsuario(nome, idade));
-console.log(mostraUsuario(nome));
-
-// 3.4
-
-const promise = () => new Promise((resolve, reject) => resolve());
+const empresa = {
+    nome_fantasia: 'Rocketseat',
+    endereco: {
+        cidade: 'Rio do Sul',
+        estado: 'SC'
+    }
+}
 
 
+const { nome_fantasia, endereco: { cidade, estado }} = empresa;
+
+console.log(nome_fantasia);
+console.log(cidade);
+console.log(estado);
+
+// 4.2 Desestruturação em parâmetros
+
+function mostraInfo({ nome , idade }) {
+    return `${nome} tem ${idade} anos.`;
+}
+
+console.log(mostraInfo({ nome: 'Diego', idade: 23}));
