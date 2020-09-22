@@ -1,24 +1,34 @@
-// 4.1 Desestruturação simples
+// 5.1 REST
 
-const empresa = {
-    nome_fantasia: 'Rocketseat',
+const arr = [1, 2, 3, 4, 5, 6];
+
+const [ x, ...y] = arr;
+
+console.log(x);
+console.log(y);
+
+function soma(...params) {
+    return params.reduce((total, next) => total + next);
+}
+
+console.log(soma(1, 2, 3, 4, 5, 6));
+console.log(soma(1, 2));
+
+
+// SPREAD
+
+const usuario = {
+    nome: 'Diego',
+    idade: 23,
     endereco: {
         cidade: 'Rio do Sul',
-        estado: 'SC'
+        uf: 'SC',
+        pais: 'Brasil'
     }
-}
+};
 
+const usuario2 = { ...usuario, nome: 'Gabriel' };
+const usuario3 = { ...usuario, endereco: {cidade: 'Lontras', uf: 'SC', pais: 'Brasil' }};
 
-const { nome_fantasia, endereco: { cidade, estado }} = empresa;
-
-console.log(nome_fantasia);
-console.log(cidade);
-console.log(estado);
-
-// 4.2 Desestruturação em parâmetros
-
-function mostraInfo({ nome , idade }) {
-    return `${nome} tem ${idade} anos.`;
-}
-
-console.log(mostraInfo({ nome: 'Diego', idade: 23}));
+console.log(usuario2);
+console.log(usuario3);
