@@ -1,24 +1,24 @@
-const usuarios = [
-    { nome : 'Diego', idade: 23, empresa: 'Rocketseat' },
-    { nome : 'Gabriel', idade: 15, empresa: 'Rocketseat' },
-    { nome : 'Lucas', idade: 30, empresa: 'Facebook' }
-]
+// 4.1 Desestruturação simples
 
-const idades = []; 
-// const trabalham = [];
+const empresa = {
+    nome_fantasia: 'Rocketseat',
+    endereco: {
+        cidade: 'Rio do Sul',
+        estado: 'SC'
+    }
+}
 
-usuarios.map(item => { idades.push(item.idade) });
 
-const trabalham = usuarios.filter(item => item.empresa === 'Rocketseat' && item.idade > 18);
+const { nome_fantasia, endereco: { cidade, estado }} = empresa;
 
-const trabalham_google = usuarios.find(item => item.empresa === 'Google');
+console.log(nome_fantasia);
+console.log(cidade);
+console.log(estado);
 
-console.log(idades);
-console.log(trabalham);
-console.log(trabalham_google);
+// 4.2 Desestruturação em parâmetros
 
-usuarios.map(item => { item.idade *= 2 });
+function mostraInfo({ nome , idade }) {
+    return `${nome} tem ${idade} anos.`;
+}
 
-const filtro = usuarios.filter(item => item.idade <= 50 );
-
-console.log(filtro);
+console.log(mostraInfo({ nome: 'Diego', idade: 23}));

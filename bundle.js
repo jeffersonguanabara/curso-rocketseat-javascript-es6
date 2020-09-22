@@ -1,36 +1,28 @@
 "use strict";
 
-var usuarios = [{
-  nome: 'Diego',
-  idade: 23,
-  empresa: 'Rocketseat'
-}, {
-  nome: 'Gabriel',
-  idade: 15,
-  empresa: 'Rocketseat'
-}, {
-  nome: 'Lucas',
-  idade: 30,
-  empresa: 'Facebook'
-}];
-var idades = []; // const trabalham = [];
+// 4.1 Desestruturação simples
+var empresa = {
+  nome_fantasia: 'Rocketseat',
+  endereco: {
+    cidade: 'Rio do Sul',
+    estado: 'SC'
+  }
+};
+var nome_fantasia = empresa.nome_fantasia,
+    _empresa$endereco = empresa.endereco,
+    cidade = _empresa$endereco.cidade,
+    estado = _empresa$endereco.estado;
+console.log(nome_fantasia);
+console.log(cidade);
+console.log(estado); // 4.2 Desestruturação em parâmetros
 
-usuarios.map(function (item) {
-  idades.push(item.idade);
-});
-var trabalham = usuarios.filter(function (item) {
-  return item.empresa === 'Rocketseat' && item.idade > 18;
-});
-var trabalham_google = usuarios.find(function (item) {
-  return item.empresa === 'Google';
-});
-console.log(idades);
-console.log(trabalham);
-console.log(trabalham_google);
-usuarios.map(function (item) {
-  item.idade *= 2;
-});
-var filtro = usuarios.filter(function (item) {
-  return item.idade <= 50;
-});
-console.log(filtro);
+function mostraInfo(_ref) {
+  var nome = _ref.nome,
+      idade = _ref.idade;
+  return "".concat(nome, " tem ").concat(idade, " anos.");
+}
+
+console.log(mostraInfo({
+  nome: 'Diego',
+  idade: 23
+}));
